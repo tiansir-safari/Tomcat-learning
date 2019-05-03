@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebSocketMock:war exploded">
+    <output-path>$PROJECT_DIR$/../WebSocketMock/out/artifacts/WebSocketMock_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="WebSocketMock/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebSocketMock" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

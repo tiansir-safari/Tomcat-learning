@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+   
+         http://www.apache.org/licenses/LICENSE-2.0
+   
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<!DOCTYPE mbeans-descriptors PUBLIC
+ "-//Apache Software Foundation//DTD Model MBeans Configuration File"
+ "http://jakarta.apache.org/commons/dtds/mbeans-descriptors.dtd">
+
+<!-- Descriptions of JMX MBeans for Catalina -->
+
+<mbeans-descriptors>
+
+  <mbean         name="HttpConnector"
+            className="org.apache.catalina.mbeans.HttpConnectorModelMBean"
+          description="HTTP/1.1 Connector for Tomcat Standalone"
+                 type="org.apache.catalina.connector.http.HttpConnector">
+
+    <descriptor>
+      <field     name="field1" value="HttpConnector/field1"/>
+      <field     name="field2" value="HttpConnector/field2"/>
+    </descriptor>
+
+
+    <attribute   name="acceptCount"
+          description="Maximum socket accept queue length"
+                 type="int">
+      <descriptor>
+        <field   name="field1" value="HttpConnector.acceptCount/field1"/>
+        <field   name="field2" value="HttpConnector.acceptCount/field2"/>
+      </descriptor>
+    </attribute>
+
+    <attribute   name="address"
+          description="Specific IP address to bind to"
+                 type="java.lang.String"/>
+
+    <attribute   name="available"
+          description="Is this Connector available for processing requests?"
+                 type="boolean"
+            writeable="false"/>
+
+    <attribute   name="bufferSize"
+          description="Input buffer size (bytes)"
+                 type="int"/>
+
+    <attribute   name="chunkingAllowed"
+          description="Is chunked input/output allowed?"
+                   is="true"
+            setMethod="setAllowChunking"
+                 type="boolean"/>
+
+    <attribute   name="connectionTimeout"
+          description="Connection timeout (seconds)"
+                 type="int"/>
+
+    <attribute   name="container"
+          description="Container (Engine) processing our requests"
+                 type="org.apache.catalina.Container"
+            writeable="false"/>
+
+    <attribute   name="curProcessors"
+          description="Current number of processing threads"
+                 type="int"
+            writeable="false"/>
+
+    <attribute   name="debug"
+          description="Log debugging detail level (0=none)"
+                 type="int"/>
+
+    <attribute   name="enableLookups"
+          description="Are DNS lookups of remote host name enabled?"
+                 type="boolean"/>
+
+    <attribute   name="factory"
+          description="Server socket factory for this Connector"
+                 type="org.apache.catalina.net.ServerSocketFactory"/>
+
+    <attribute   name="maxProcessors"
+          description="Maximum number of processing threads"
+                 type="int"/>
+
+    <attribute   name="minProcessors"
+          description="Minimum number of processing threads"
+                 type="int"/>
+
+    <attribute   name="port"
+          description="TCP port number to listen on"
+                 type="int"/>
+
+    <attribute   name="proxyName"
+          description="Proxy server name for this Connector"
+                 type="java.lang.String"/>
+
+    <attribute   name="proxyPort"
+          description="Proxy server port for this Connector"
+                 type="int"/>
+
+    <attribute   name="redirectPort"
+          description="SSL port associated with this non-SSL port"
+                 type="int"/>
+
+    <attribute   name="scheme"
+          description="Protocol name for this Connector (http, https)"
+                 type="java.lang.String"/>
+
+    <attribute   name="secure"
+          description="Is this a secure (SSL) Connector?"
+                 type="boolean"/>
+
+    <attribute   name="service"
+          description="Service that owns this Connector"
+                 type="org.apache.catalina.Service"/>
+
+    <attribute   name="tcpNoDelay"
+          description="Set the TCP no-delay option on our connections?"
+                 type="boolean"/>
+
+    <constructor name="HttpConnector">
+      <descriptor>
+        <field   name="field1" value="HttpConnector.constructor/field1"/>
+        <field   name="field2" value="HttpConnector.constructor/field2"/>
+      </descriptor>
+    </constructor>
+
+    <notification name="Problem">
+      <descriptor>
+        <field   name="field1" value="HttpConnector.problem/field1"/>
+        <field   name="field2" value="HttpConnector.problem/field2"/>
+      </descriptor>
+      <notification-type>This is a problem</notification-type>
+    </notification>
+
+
+    <operation   name="initialize"
+          description="Perform pre-startup initialization"
+               impact="ACTION"
+           returnType="void">
+      <descriptor>
+        <field   name="field1" value="HttpConnector.initialize/field1"/>
+        <field   name="field2" value="HttpConnector.initialize/field2"/>
+      </descriptor>
+    </operation>
+
+    <operation   name="start"
+          description="Start this Connector and processing threads"
+               impact="ACTION"
+           returnType="void"/>
+
+    <operation   name="stop"
+          description="Stop this Connector and processing threads"
+               impact="ACTION"
+           returnType="void"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardEngine"
+            className="org.apache.catalina.mbeans.StandardEngineModelMBean"
+          description="Standard Engine Component"
+                group="org.apache.catalina.Container"
+                 type="org.apache.catalina.core.StandardEngine">
+
+    <!-- ===== Container Attributes ===== -->
+
+    <attribute   name="debug"
+          description="Log debugging detail level (0=none)"
+                 type="int"/>
+
+    <!-- Engine has no "loader" -->
+
+    <attribute   name="logger"
+          description="Message logger for this Engine and child components"
+                 type="org.apache.catalina.Logger"/>
+
+    <!-- Engine has no "manager" -->
+
+    <attribute   name="name"
+          description="Unique name of this Engine"
+                 type="java.lang.String"/>
+
+    <!-- Engine has no "parent" -->
+
+    <attribute   name="parentClassLoader"
+          description="Parent class loader for web applications"
+                 type="java.lang.ClassLoader"/>
+
+    <attribute   name="realm"
+          description="Authentication data for this Engine and child components"
+                 type="org.apache.catalina.Realm"/>
+
+    <!-- Engine has no "resources" -->
+
+    <!-- ===== Engine Attributes ===== -->
+
+    <attribute   name="defaultHost"
+          description="Name of the default Host for this Engine"
+                 type="java.lang.String"/>
+
+    <attribute   name="mapperClass"
+          description="Java class name of our default Mapper implementation"
+                 type="java.lang.String"/>
+
+    <attribute   name="service"
+          description="Service that owns this Engine"
+                 type="org.apache.catalina.Service"/>
+
+    <!-- ===== Constructors ===== -->
+
+    <constructor name="StandardEngine"/>
+
+    <!-- ===== Container Operations ===== -->
+
+    <operation   name="addChild"
+          description="Add new child Container (Host) to this Engine"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="child"
+          description="Container (Host) to be added"
+                 type="org.apache.catalina.Container"/>
+    </operation>
+
+    <operation   name="addMapper"
+          description="Add new request mapper to this Engine"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="mapper"
+          description="The Mapper to be added"
+                 type="org.apache.catalina.Mapper"/>
+    </operation>
+
+    <operation   name="findChild"
+          description="Find specified child Container (Host) of this Engine"
+               impact="INFO"
+           returnType="org.apache.catalina.Container">
+      <parameter name="name"
+          description="Name of the requested child Container (Host)"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findChildren"
+          description="Find all child Containers (Hosts) of this Engine"
+               impact="INFO"
+           returnType="org.apache.catalina.Container"/>
+
+    <operation   name="findMapper"
+          description="Find specified request mapper of this Engine"
+               impact="INFO"
+           returnType="org.apache.catalina.Mapper">
+      <parameter name="protocol"
+          description="Protocol for which a mapper is requested (http)"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findMappers"
+          description="Find all request mappers of this Engine"
+               impact="INFO"
+           returnType="org.apache.catalina.Mapper[]"/>
+
+    <operation   name="removeChild"
+          description="Remove existing child Container (Host) from this Engine"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="child"
+          description="Container (Host) to be removed"
+                 type="org.apache.catalina.Container"/>
+    </operation>
+
+    <operation   name="removeMapper"
+          description="Remove existing request mapper of this engine"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="mapper"
+          description="Request mapper to be removed"
+                 type="org.apache.catalina.Mapper"/>
+    </operation>
+
+    <!-- ===== Engine Operations ===== -->
+
+    <operation   name="addDefaultContext"
+          description="Set new DefaultContext for this Engine"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="defaultContext"
+          description="The new DefaultContext for this Engine"
+                 type="org.apache.catalina.DefaultContext"/>
+    </operation>
+
+    <operation   name="start"
+          description="Start this Engine and all child components"
+               impact="ACTION"
+           returnType="void"/>
+
+    <operation   name="stop"
+          description="Stop this Engine and all child components"
+               impact="ACTION"
+           returnType="void"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardServer"
+            className="org.apache.catalina.mbeans.StandardServerModelMBean"
+          description="Standard Server Component"
+                 type="org.apache.catalina.core.StandardServer">
+
+    <attribute   name="port"
+          description="TCP port for shutdown messages"
+                 type="int"/>
+
+    <attribute   name="shutdown"
+          description="Shutdown password"
+                 type="java.lang.String"/>
+
+    <constructor name="StandardServer"/>
+
+    <operation   name="addService"
+          description="Add a new child Service"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="service"
+          description="The Service to be added"
+                 type="org.apache.catalina.Service"/>
+    </operation>
+
+    <!-- FIXME:  Should this be exposed? -->
+    <operation   name="await"
+          description="Wait for a proper shutdown command"
+               impact="ACTION"
+           returnType="void"/>
+
+    <!-- FIXME:  Add this operation -->
+    <operation   name="findService"
+          description="Find the specified child Service"
+               impact="INFO"
+           returnType="org.apache.catalina.Service">
+      <parameter name="name"
+          description="Name of the requested service"
+                 type="java.lang.String"/>
+    </operation>
+
+    <operation   name="findServices"
+          description="Return all child Services"
+               impact="INFO"
+           returnType="org.apache.catalina.Service[]"/>
+
+    <operation   name="initialize"
+          description="Perform pre-startup initialization"
+               impact="ACTION"
+           returnType="void"/>
+
+    <operation   name="removeService"
+          description="Remove an existing child Service"
+               impact="ACTION"
+           returnType="void"> <!-- void type? -->
+      <parameter name="service"
+          description="The service to be removed"
+                 type="org.apache.catalina.Service"/>
+    </operation>
+
+    <operation   name="start"
+          description="Start this Server and all children"
+               impact="ACTION"
+           returnType="void"/>
+
+    <operation   name="stop"
+          description="Stop this Server and all children"
+               impact="ACTION"
+           returnType="void"/>
+
+  </mbean>
+
+
+  <mbean         name="StandardService"
+            className="org.apache.catalina.mbeans.StandardServiceModelMBean"
+          description="Standard Service Component"
+                 type="org.apache.catalina.core.StandardService">
+
+    <attribute   name="container"
+          description="The Container (Engine) processing requests for this Service"
+                 type="org.apache.catalina.Container"/>
+
+    <attribute   name="name"
+          description="Unique name of this Service"
+                 type="java.lang.String"/>
+
+    <!-- FIXME - Add this attribute -->
+    <attribute   name="server"
+          description="The Server that owns this Service"
+                 type="org.apache.catalina.Server"
+            writeable="false"/>
+
+    <constructor name="StandardService"/>
+
+    <operation   name="addConnector"
+          description="Add a new associated Connector"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="connector"
+          description="The Connector to be added"
+                 type="org.apache.catalina.Connector"/>
+    </operation>
+
+    <operation   name="findConnectors"
+          description="Return all associated Connectors"
+               impact="ACTION"
+           returnType="org.apache.catalina.Connector[]"/>
+
+    <operation   name="initialize"
+          description="Perform pre-startup initialization"
+               impact="ACTION"
+           returnType="void"/>
+
+    <operation   name="removeConnector"
+          description="Remove an existing associated Connector"
+               impact="ACTION"
+           returnType="void">
+      <parameter name="connector"
+          description="The Connector to be removed"
+                 type="org.apache.catalina.Connector"/>
+    </operation>
+
+    <operation   name="start"
+          description="Start this Service and all children"
+               impact="ACTION"
+           returnType="void"/>
+
+    <operation   name="stop"
+          description="Stop this Service and all children"
+               impact="ACTION"
+           returnType="void"/>
+
+  </mbean>
+
+
+</mbeans-descriptors>
